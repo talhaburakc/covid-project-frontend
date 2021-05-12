@@ -9,16 +9,14 @@ function App() {
   return (
     <div>
       <Router>
-        <Redirect from="/" to="login" />
+        <Redirect from="/" to="login"/>
 
         <Route path="/login">
           <Login />
         </Route>
-
         <Route path="/register">
           <Register />
         </Route>
-
         <Route path="/home">
           <Home />
         </Route>
