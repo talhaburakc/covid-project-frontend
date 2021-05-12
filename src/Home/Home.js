@@ -24,11 +24,13 @@ export class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOWIwNjAxYjc4ZTNjMDAxNThhMDE4MiIsImlhdCI6MTYyMDc4MDI1NSwiZXhwIjoxNjIwNzg3NDU1fQ.Pplpgcltsb82b0Eh8lFsHdorTZ07UL95thIk3OBQds8";
-    this.username = "talha";
-    if (this.props.location.state) {
-      this.username = this.props.location.state.username || "user not found";
-      this.token = this.props.location.state.token || "invalidtoken";
+    this.token = "";
+    this.username = "";
+    if (this.props.location.state && this.props.location.state.username && this.props.location.state.token) {
+      this.username = this.props.location.state.username;
+      this.token = this.props.location.state.token;
+    } else {
+      this.props.history.push('/login');
     }
 
     this.state = {
@@ -111,29 +113,6 @@ export class Home extends Component {
       console.log("fail")
       console.log(error);
     });
-  }
-
-  inputChange = (event) => {
-    const { value } = event.target;
-    this.setState({ symptomName: value });
-    this.validationErrorMessage(event);
-  }
-
-  loginForm = async (event) => {
-    this.setState({ submitted: true });
-    event.preventDefault();
-    if (this.validateForm(this.state.errors)) {
-      console.info('Valid Form')
-    //   const user = getStore('user')
-      if (true) {
-        // this.props.dispatch(ActionCreators.login(user));
-        this.props.history.push('/home')
-      } else {
-        this.setState({ loginStatus: 'Login Failed! Invalid Username and Password'})
-      }
-    } else {
-      console.log('Invalid Form')
-    }
   }
 
   addSymptom = () => {
