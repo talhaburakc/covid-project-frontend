@@ -57,6 +57,7 @@ export class Register extends Component {
             })
             .catch(function (error) {
                 // handle error
+                alert(`Signup failed. Please fill all the cells. ${error}`);
                 console.log(error);
             })
     }
@@ -64,35 +65,35 @@ export class Register extends Component {
     render() {
         const {username, password, name, surname, age, gender, height, weight, city} = this.state;
         return (
-            <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"}}>
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                 <Paper>
                     <form>
-                        <div style={{padding: "15px"}}>
+                        <div style={{padding: "20px"}}>
                             <TextField type="text" value={username} name="username" onChange={(e) => {
                                 this.inputChange(e)
-                            }} label="Username"/>
+                            }} label="Username (alphabetic)"/>
                         </div>
-                        <div style={{padding: "15px"}}>
+                        <div style={{padding: "20px"}}>
                             <TextField type="password" value={password} name="password" onChange={(e) => {
                                 this.inputChange(e)
-                            }} id="password" label="Password"/>
+                            }} id="password" label="Password (min len 8)"/>
                         </div>
-                        <div style={{padding: "15px"}}>
+                        <div style={{padding: "20px"}}>
                             <TextField type="text" value={name} name="name" onChange={(e) => {
                                 this.inputChange(e)
                             }} id="name" label="Name"/>
                         </div>
-                        <div style={{padding: "15px"}}>
+                        <div style={{padding: "20px"}}>
                             <TextField type="text" value={surname} name="surname" onChange={(e) => {
                                 this.inputChange(e)
                             }} id="surname" label="Surname"/>
                         </div>
-                        <div style={{padding: "15px"}}>
+                        <div style={{padding: "20px"}}>
                             <TextField type="text" value={age} name="age" onChange={(e) => {
                                 this.inputChange(e)
                             }} id="age" label="Age"/>
                         </div>
-                        <div style={{padding: "15px"}}>
+                        <div style={{padding: "20px"}}>
                             <FormControl style={{width: "100%"}}>
                                 {/* <Input type="text" value={gender} name="gender" onChange={(e) => { this.inputChange(e)} } id="gender" placeholder="Gender" /> */}
                                 <InputLabel> Gender </InputLabel>
@@ -107,28 +108,29 @@ export class Register extends Component {
                                 </Select>
                             </FormControl>
                         </div>
-                        <div style={{padding: "15px"}}>
+                        <div style={{padding: "20px"}}>
                             <TextField type="text" value={height} name="height" onChange={(e) => {
                                 this.inputChange(e)
                             }} id="height" label="Height"/>
                         </div>
-                        <div style={{padding: "15px"}}>
+                        <div style={{padding: "20px"}}>
                             <TextField type="text" value={weight} name="weight" onChange={(e) => {
                                 this.inputChange(e)
                             }} id="weight" label="Weight"/>
                         </div>
-                        <div style={{padding: "15px"}}>
+                        <div style={{padding: "20px"}}>
                             <TextField type="text" value={city} name="city" onChange={(e) => {
                                 this.inputChange(e)
-                            }} id="city" label="City"/>
+                            }} id="city" label="City (in Turkey)"/>
                         </div>
 
-                        <div style={{paddingLeft: "10px"}}>
+                        <div style={{paddingLeft: "15px"}}>
                             <Button type="submit" color="primary" onClick={this.registerForm}>Register </Button>
                         </div>
-                        <div style={{paddingLeft: "10px", paddingBottom: "10px"}}>
+                        <div style={{paddingLeft: "15px", paddingBottom: "10px"}}>
                             <Button color="primary" onClick={(e) => this.props.history.push('/login')}>Login</Button>
                         </div>
+
                     </form>
                 </Paper>
             </div>

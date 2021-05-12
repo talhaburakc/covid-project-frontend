@@ -66,7 +66,6 @@ export class Home extends Component {
         Axios.get(`${SERVER_ENDPOINT}/symptoms`, {headers: headers})
             .then((response) => {
                 // handle success
-
                 this.setState({
                     commonSymptoms: response.data.common,
                     lessCommonSymptoms: response.data["less common"],
