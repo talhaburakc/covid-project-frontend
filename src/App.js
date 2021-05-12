@@ -9,6 +9,8 @@ function App() {
   return (
     <div>
       <Router>
+        <Redirect from="/" to="login" />
+
         <Route path="/login">
           <Login />
         </Route>
