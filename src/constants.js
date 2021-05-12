@@ -1,0 +1,1 @@
+export const SERVER_ENDPOINT = process.env.SERVER_ENDPOINT || "https://covidbackendcs458.herokuapp.com"
